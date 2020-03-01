@@ -1,3 +1,3 @@
-module github.com/undevd/weighted_probability
+module github.com/undevd/loadeddice
 
 go 1.13
