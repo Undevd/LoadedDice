@@ -1,23 +1,9 @@
 package loadeddice
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
-
-func main() {
-	list := []WeightedItem{
-		{"test_1", 10},
-		{"test_2", 20},
-		{"test_3", 0},
-		{"test_4", 70},
-	}
-
-	item := GetItem(list)
-
-	fmt.Println(item)
-}
 
 // GetItem takes in a weighted items list and returns a single item from the list
 func GetItem(items []WeightedItem) interface{} {
