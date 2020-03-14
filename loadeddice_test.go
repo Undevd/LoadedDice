@@ -6,14 +6,14 @@ import (
 )
 
 func TestSumWeights(t *testing.T) {
-	list100 := []WeightedItem{
+	list100 := []WeightedFace{
 		{"item_1", 10},
 		{"item_2", 20},
 		{"item_3", 0},
 		{"item_4", 70},
 	}
 
-	list20 := []WeightedItem{
+	list20 := []WeightedFace{
 		{"item_1", 5},
 		{"item_2", 5},
 		{"item_3", 5},
@@ -21,7 +21,7 @@ func TestSumWeights(t *testing.T) {
 	}
 
 	var cases = []struct {
-		items []WeightedItem
+		items []WeightedFace
 		want  int
 	}{
 		{list100, 100},

@@ -5,8 +5,14 @@ import (
 	"time"
 )
 
-// GetItem takes in a weighted items list and returns a single item from the list
-func GetItem(items []WeightedItem) interface{} {
+// WeightedFace consists of an object and int representing the weight of chance to be returned
+type WeightedFace struct {
+	Item   interface{}
+	Weight int
+}
+
+// Roll takes in a weighted items list and returns a single item from the list
+func Roll(items []WeightedFace) interface{} {
 
 	seed := rand.NewSource(time.Now().UnixNano())
 	random := rand.New(seed)
@@ -27,7 +33,7 @@ func GetItem(items []WeightedItem) interface{} {
 	return selected
 }
 
-func sumWeights(items []WeightedItem) int {
+func sumWeights(items []WeightedFace) int {
 	var total int = 0
 	for i := 0; i < len(items); i++ {
 		total += items[i].Weight
@@ -36,7 +42,7 @@ func sumWeights(items []WeightedItem) int {
 	return total
 }
 
-func generateWeightRanges(items []WeightedItem, total int) []float64 {
+func generateWeightRanges(items []WeightedFace, total int) []float64 {
 	var weightRanges []float64
 	var count int = 0
 	for _, item := range items {
@@ -49,10 +55,4 @@ func generateWeightRanges(items []WeightedItem, total int) []float64 {
 	}
 
 	return weightRanges
-}
-
-// WeightedItem consists of an object and int representing the weight of chance to be returned
-type WeightedItem struct {
-	Item   interface{}
-	Weight int
 }
