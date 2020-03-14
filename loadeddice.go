@@ -33,7 +33,7 @@ func GetItem(items []WeightedItem) interface{} {
 	r := random.Float64()
 	for i := 0; i < len(items); i++ {
 		if r <= weightRanges[i] {
-			selected = items[i]
+			selected = items[i].Item
 			break
 		}
 	}
