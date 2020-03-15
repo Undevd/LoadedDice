@@ -11,8 +11,23 @@ type WeightedFace struct {
 	Weight int
 }
 
+// Dice is a thing
+type Dice struct {
+	Faces []WeightedFace
+}
+
+// NewDice creates a dice
+func NewDice(faces []WeightedFace) Dice {
+	dice := Dice{
+		Faces: faces,
+	}
+
+	return dice
+}
+
 // Roll takes in a weighted items list and returns a single item from the list
-func Roll(items []WeightedFace) interface{} {
+func (dice Dice) Roll() interface{} {
+	items := dice.Faces
 
 	seed := rand.NewSource(time.Now().UnixNano())
 	random := rand.New(seed)
